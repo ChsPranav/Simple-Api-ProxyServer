@@ -163,9 +163,6 @@ curl "http://api.weatherstack.com/current?access_key=your_api_key&query=New Delh
 
 ### Example Response
 
-json
-
-Copy code
 
 {     "request": {         "type": "City",         "query": "New Delhi, India",         "language": "en",         "unit": "m"     },     "location": {         "name": "New Delhi",         "country": "India",         "region": "Delhi",         "lat": "28.600",         "lon": "77.200",         "timezone_id": "Asia/Kolkata",         "localtime": "2024-07-29 15:30",         "localtime_epoch": 1627561200,         "utc_offset": "5.50"     },     "current": {         "observation_time": "10:30 AM",         "temperature": 34,         "weather_code": 113,         "weather_icons": [             "https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png"         ],         "weather_descriptions": [             "Sunny"         ],         "wind_speed": 7,         "wind_degree": 270,         "wind_dir": "W",         "pressure": 1007,         "precip": 0,         "humidity": 40,         "cloudcover": 0,         "feelslike": 36,         "uv_index": 7,         "visibility": 10,         "is_day": "yes"     } }
 
