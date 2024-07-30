@@ -16,34 +16,24 @@ npm (v6.x or later)
 Installation
 Clone the repository:
 
-sh
-Copy code
+
 git clone <repository-url>
 cd api-proxy-server
 Install dependencies:
 
-sh
-Copy code
 npm install
 Create a .env file:
 
-sh
-Copy code
-touch .env
-Add the following environment variables to the .env file:
 
-plaintext
-Copy code
+in env file text
 PORT=3000
 RATE_LIMIT=5
 CACHE_DURATION=300
 AUTH_TOKEN=your_auth_token
 WEATHERSTACK_API_KEY=your_weatherstack_api_key
 Running the Server
-Start the server with the following command:
 
-sh
-Copy code
+Start the server with the following command:
 node index.js
 The server will run on the port specified in the .env file (default is 3000).
 
@@ -58,18 +48,15 @@ Authorization: Bearer your_auth_token
 Example Requests
 Successful Request:
 
-sh
-Copy code
+
 curl -H "Authorization: Bearer your_auth_token" "http://localhost:3000/proxy?query=New Delhi"
 Exceeding Rate Limit:
 
-sh
-Copy code
+
 for i in {1..6}; do curl -H "Authorization: Bearer your_auth_token" "http://localhost:3000/proxy?query=New Delhi"; done
 Unauthorized Request:
 
-sh
-Copy code
+
 curl "http://localhost:3000/proxy?query=New Delhi"
 Expected Responses
 Successful Request:
@@ -77,9 +64,6 @@ Successful Request:
 Status: 200 OK
 Body: JSON response from the Weatherstack API.
 Example response:
-
-json
-Copy code
 {
     "request": {
         "type": "City",
@@ -133,18 +117,12 @@ Copy code
 Unauthorized Request:
 
 Status: 401 Unauthorized
-Body:
-json
-Copy code
 {
     "error": "Unauthorized"
 }
 Error from External API:
 
 Status: 500 Internal Server Error (or other relevant status codes based on the error)
-Body:
-json
-Copy code
 {
     "error": "Error fetching from external API"
 }
@@ -170,8 +148,7 @@ Errors from external API calls are handled gracefully. The server distinguishes 
 Example Log Output
 Here’s an example of what the logs will look like:
 
-sql
-Copy code
+
 2024-07-29T15:30:00.000Z ::1 GET /proxy?query=New%20Delhi 200 50ms - within limit
 2024-07-29T15:31:00.000Z ::1 GET /proxy?query=New%20Delhi 429 1ms - exceeded
 Weatherstack API Documentation
@@ -183,13 +160,10 @@ Endpoint: http://api.weatherstack.com/current
 Parameters:
 access_key: Your API access key.
 query: Location for which you want the weather information.
+
 Example Request
-sh
-Copy code
 curl "http://api.weatherstack.com/current?access_key=your_api_key&query=New Delhi"
 Example Response
-json
-Copy code
 {
     "request": {
         "type": "City",
@@ -231,6 +205,7 @@ Copy code
         "is_day": "yes"
     }
 }
+
 For more details and advanced usage, please refer to the Weatherstack API Documentation.
 
 Conclusion
